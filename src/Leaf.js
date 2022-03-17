@@ -97,7 +97,6 @@ class SubLeaf extends Leaf {
     p5.push();
     p5.translate(this.location);
     p5.rect(0, 0, this.width, this.height, 3, 3, 3, 3);
-    console.log(this.name);
     p5.pop();
   }
 }
