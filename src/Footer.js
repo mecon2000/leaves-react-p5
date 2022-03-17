@@ -1,11 +1,12 @@
 import "./Footer.css";
-import github from './github.png';
-import linkedInLogo from './linkedin.png';
+import github from "./github.png";
+import linkedInLogo from "./linkedin.png";
 
 function Footer() {
   return (
     <footer header className="Footer">
-      <hr/>Rong 
+      <hr />
+      Rong
       <a href="https://github.com/mecon2000">
         <img src={github} alt="github"></img>
       </a>
@@ -16,4 +17,4 @@ function Footer() {
   );
 }
 
-export {Footer};
+export { Footer };
