@@ -1,5 +1,5 @@
-import { DrawingBranch } from "./DrawingBranch.js";
-import { Footer } from "./Footer.js";
+import { DrawingBranch } from "./Components/DrawingBranch.js";
+import { Footer } from "./Layouts/Footer.js";
 import "./App.css";
 
 function App() {

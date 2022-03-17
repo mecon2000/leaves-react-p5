@@ -50,23 +50,10 @@ const DrawingBranch = (props) => {
     // in the draw function...
     // please use normal variables or class properties for these purposes
     writeInstructions(p5);
-    //    writeDim(p5);
 
     leaves.forEach((l) => {
       l?.leaf?.draw();
     });
-  };
-
-  //debug function to write the dimension of the canvas
-  const writeDim = (p5) => {
-    p5.push();
-    p5.stroke("white");
-    p5.strokeWeight(1);
-    p5.fill("black");
-    p5.textSize(20);
-    p5.textAlign(p5.CENTER);
-    p5.text(`${p5.width}, ${p5.height}`, p5.width / 2, p5.height / 2);
-    p5.pop();
   };
 
   const writeInstructions = (p5) => {
