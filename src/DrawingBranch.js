@@ -4,7 +4,7 @@ import { Leaf } from "./Leaf.js";
 
 //consts:
 let leaves = [];
-const canvasSize = 800;
+const canvasSize = 700;
 const maximumLeaves = 10;
 
 //colors consts:
@@ -17,21 +17,32 @@ const maxBranchWidth = 7;
 let currentMinimumDistance = 0;
 
 const DrawingBranch = (props) => {
+  const calcCanvas = (p5) => {
+    const width = Math.min(p5.windowWidth - 25, canvasSize);
+    const height = Math.min(p5.windowHeight - 82, canvasSize);
+    return [width, height];
+  };
   const setup = (p5, canvasParentRef) => {
     window.p5instance = p5; //TODO there must be a better way to get the only p5 instance
     //setting consts which cannot be initialized on global scope (it's a p5.js thing)
     backgroundColor = p5.color("#F5C67B");
     branchColor = p5.color("white");
 
+    const [w, h] = calcCanvas(p5);
+
     // use parent to render the canvas in this ref
     // (without that p5 will render the canvas outside of your component)
-    p5.createCanvas(canvasSize, canvasSize).parent(canvasParentRef);
+    p5.createCanvas(w, h).parent(canvasParentRef);
     p5.frameRate(30);
     p5.rectMode(p5.CENTER);
     p5.stroke(branchColor);
     p5.background(backgroundColor);
-    p5.textSize(canvasSize / 30);
-    p5.textAlign(p5.CENTER);
+  };
+
+  const windowResized = (p5) => {
+    const [w, h] = calcCanvas(p5);
+    p5.resizeCanvas(w, h);
+    p5.background(backgroundColor);
   };
 
   const draw = (p5) => {
@@ -39,10 +50,23 @@ const DrawingBranch = (props) => {
     // in the draw function...
     // please use normal variables or class properties for these purposes
     writeInstructions(p5);
+    //    writeDim(p5);
 
     leaves.forEach((l) => {
       l?.leaf?.draw();
     });
+  };
+
+  //debug function to write the dimension of the canvas
+  const writeDim = (p5) => {
+    p5.push();
+    p5.stroke("white");
+    p5.strokeWeight(1);
+    p5.fill("black");
+    p5.textSize(20);
+    p5.textAlign(p5.CENTER);
+    p5.text(`${p5.width}, ${p5.height}`, p5.width / 2, p5.height / 2);
+    p5.pop();
   };
 
   const writeInstructions = (p5) => {
@@ -50,7 +74,18 @@ const DrawingBranch = (props) => {
     p5.stroke("white");
     p5.strokeWeight(1);
     p5.fill("black");
-    p5.text("drag the mouse over the screen", canvasSize / 2, 35);
+
+    p5.textAlign(p5.CENTER);
+    p5.textSize(30);
+    p5.rectMode(p5.CORNERS);
+    p5.text(
+      "drag the mouse over the screen",
+      10,
+      10,
+      Math.min(p5.windowWidth - 25, canvasSize) - 10,
+      200
+    );
+
     p5.pop();
   };
 
@@ -100,6 +135,7 @@ const DrawingBranch = (props) => {
       draw={draw}
       mouseDragged={mouseDragged}
       mousePressed={mousePressed}
+      windowResized={windowResized}
     />
   );
 };
