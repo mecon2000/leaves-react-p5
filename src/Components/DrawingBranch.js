@@ -5,23 +5,31 @@ import { Leaf } from "./Leaf.js";
 //consts:
 let leaves = [];
 const canvasSize = 700;
-const maximumLeaves = 10;
 
 //colors consts:
 let backgroundColor;
 let branchColor;
 const minBranchWidth = 1;
-const maxBranchWidth = 7;
 
-//globals :
+//globals:
 let currentMinimumDistance = 0;
 
+//globals which are set by parent (see props):
+let branchVertices;
+let maxBranchWidth;
+let frameRate;
+
 const DrawingBranch = (props) => {
+  branchVertices = props.maximumLeaves + 1; //added 1 becuase 1st vertex doesn't contain a leaf
+  maxBranchWidth = props.maxBranchWidth;
+  frameRate = props.frameRate;
+
   const calcCanvas = (p5) => {
     const width = Math.min(p5.windowWidth - 25, canvasSize);
     const height = Math.min(p5.windowHeight - 82, canvasSize);
     return [width, height];
   };
+
   const setup = (p5, canvasParentRef) => {
     window.p5instance = p5; //TODO there must be a better way to get the only p5 instance
     //setting consts which cannot be initialized on global scope (it's a p5.js thing)
@@ -33,7 +41,7 @@ const DrawingBranch = (props) => {
     // use parent to render the canvas in this ref
     // (without that p5 will render the canvas outside of your component)
     p5.createCanvas(w, h).parent(canvasParentRef);
-    p5.frameRate(30);
+    p5.frameRate(frameRate);
     p5.rectMode(p5.CENTER);
     p5.stroke(branchColor);
     p5.background(backgroundColor);
@@ -46,6 +54,7 @@ const DrawingBranch = (props) => {
   };
 
   const draw = (p5) => {
+    p5.frameRate(frameRate);
     // NOTE: Do not use setState in the draw function or in functions that are executed
     // in the draw function...
     // please use normal variables or class properties for these purposes
@@ -80,7 +89,7 @@ const DrawingBranch = (props) => {
     const weight = p5.lerp(
       maxBranchWidth,
       minBranchWidth,
-      leaves.length / maximumLeaves
+      leaves.length / branchVertices
     );
     p5.strokeWeight(weight);
   };
@@ -100,7 +109,7 @@ const DrawingBranch = (props) => {
     if (leaves.length !== 0) {
       const prevLeaf = leaves[leaves.length - 1];
       if (
-        leaves.length < maximumLeaves &&
+        leaves.length < branchVertices &&
         currLoc.dist(prevLeaf.loc) > currentMinimumDistance
       ) {
         setBranchWidth(p5);
