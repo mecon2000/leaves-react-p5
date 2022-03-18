@@ -15,13 +15,12 @@
 
 .sliders-container {
   flex: 30%;
-  background-color: aqua;  
   height: auto;
   width: auto;
   border: 5px;
   display: grid;
   /* TODO line below is not flexible enough */
-  grid-template-columns: 60px 60px 60px 60px 60px 60px;   
+  grid-template-columns: 60px 60px 60px;
   grid-template-rows: 1fr;
   grid-column-gap: 20px;
 }

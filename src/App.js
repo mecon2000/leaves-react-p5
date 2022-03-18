@@ -17,63 +17,30 @@ function App() {
         <DrawingBranch className="drawing-branch" />
         <div className="sliders-container">
           <StyledSlider
-            title="this is title"
-            className="slider"
+            title="Number of leaves"
             min={1}
-            max={10}
+            max={15}
             step={1}
             onChange={sliderChange}
-            defaultValue={5}
+            defaultValue={10}
             vertical={true}
           />
           <StyledSlider
-            title="slider 2 with a very long name "
-            className="slider"
+            title="Branch thickness"
             min={1}
-            max={3}
+            max={14}
             step={1}
             onChange={sliderChange}
-            defaultValue={2}
+            defaultValue={7}
             vertical={true}
           />
           <StyledSlider
-            title="slider 22"
-            className="slider"
+            title="Fading speed"
             min={1}
-            max={3}
+            max={30}
             step={1}
             onChange={sliderChange}
-            defaultValue={2}
-            vertical={true}
-          />
-          <StyledSlider
-            title="slider 3"
-            className="slider"
-            min={1}
-            max={3}
-            step={1}
-            onChange={sliderChange}
-            defaultValue={2}
-            vertical={true}
-          />
-          <StyledSlider
-            title="slider 4"
-            className="slider"
-            min={1}
-            max={3}
-            step={1}
-            onChange={sliderChange}
-            defaultValue={2}
-            vertical={true}
-          />
-          <StyledSlider
-            title="slider 5"
-            className="slider"
-            min={1}
-            max={3}
-            step={1}
-            onChange={sliderChange}
-            defaultValue={2}
+            defaultValue={30}
             vertical={true}
           />
         </div>
