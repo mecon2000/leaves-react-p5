@@ -1,38 +1,27 @@
+.header {
+  height: 15px;
+}
+
 .main {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
 }
-.sliders-container {
-  flex: 30%;
-  background-color: aqua;
-  width: 300px;
-  height: 700px;
-  margin: 30;
-  border: 2px;
-  display: flex;
-  /* flex-wrap: wrap;
-  flex-direction: row; */
-}
-
-
-.slider {
-  width: 100px;
-  height: 250px;
-  margin: 30px;
-}
 
 .drawing-branch {
   flex: 70%;
 }
 
-@media (max-width: 800px) {
-  .flex-container {
-    flex-direction: column;
-  }
-}
-
-.header {
-  height: 15px;
+.sliders-container {
+  flex: 30%;
+  background-color: aqua;  
+  height: auto;
+  width: auto;
+  border: 5px;
+  display: grid;
+  /* TODO line below is not flexible enough */
+  grid-template-columns: 60px 60px 60px 60px 60px 60px;   
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
 }

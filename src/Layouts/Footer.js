@@ -4,7 +4,7 @@ import linkedInLogo from "../Assets/linkedin.png";
 
 function Footer() {
   return (
-    <footer header className="Footer">
+    <footer className="Footer">
       <hr />
       Rong
       <a href="https://github.com/mecon2000">
