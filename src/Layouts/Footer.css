@@ -13,3 +13,8 @@
   vertical-align: middle;
   padding: 6px 3px 6px 6px;
 }
+
+.footer-content{
+  margin: auto; 
+  width: fit-content;
+}
