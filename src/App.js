@@ -74,7 +74,6 @@ export default App;
 
 /*
 with tooltip
-with label
 with a "?" for a more detailed explanation. should appear only if there IS explanantion
 line should be thicker (a little)
 knob should be bigger
