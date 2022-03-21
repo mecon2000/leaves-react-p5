@@ -44,6 +44,7 @@ function App() {
             onChange={leavesCountChanged}
             defaultValue={10}
             vertical={true}
+            explanation="the number of leaves to be drawn on a single branch"
           />
           <StyledSlider
             title="Branch thickness"
