@@ -54,6 +54,7 @@ function App() {
             onChange={branchThicknessChanged}
             defaultValue={7}
             vertical={true}
+            explanation="this indicates how thick the branch should be at its base"
           />
           <StyledSlider
             title="Fading speed"
@@ -63,6 +64,7 @@ function App() {
             onChange={fadingSpeedChanged}
             defaultValue={30}
             vertical={true}
+            explanation="affects the frame-rate of p5 canvas"
           />
         </div>
       </div>
