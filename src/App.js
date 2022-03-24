@@ -74,12 +74,3 @@ function App() {
 }
 
 export default App;
-
-/*
-with tooltip
-with a "?" for a more detailed explanation. should appear only if there IS explanantion
-line should be thicker (a little)
-knob should be bigger
-BG  = white, pallete should be appealing (how)
-(add redux for state management? akita? what else is there)
-*/

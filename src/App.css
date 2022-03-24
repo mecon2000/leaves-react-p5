@@ -8,20 +8,34 @@
   flex-wrap: wrap;
   flex-direction: row;
   overflow: auto;
+  padding-left: 15px;
 }
 
 .drawing-branch {
-  flex: 70%;
+  flex: 70%;  
 }
 
 .sliders-container {
   flex: 30%;
   height: auto;
-  width: auto;
-  border: 5px;
   display: grid;
   /* TODO line below is not flexible enough */
   grid-template-columns: 60px 60px 60px;
   grid-template-rows: 1fr;
   grid-column-gap: 20px;
+}
+
+/* TODO 1040px is FRAGILE! how to calc based on item size!? */
+@media screen and (max-width: 1040px) {
+  .main {
+    flex-direction: column;
+    margin: auto;
+    padding-left: 0px;
+  }
+  .sliders-container {
+    margin: auto;
+  }
+  .drawing-branch {
+    padding-left: 0px;
+  }
 }
